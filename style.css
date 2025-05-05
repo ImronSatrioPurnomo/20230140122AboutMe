@@ -1,0 +1,266 @@
+/* ====== style.css Final ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1117;
+    color: #f2f2f2;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e1e1e;
+    background-color: #151823;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #f2f2f2;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f2f2f2;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+  
+  .nav-links a:hover {
+    color: #00bcd4;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .container {
+    padding: 60px 40px;
+    max-width: 960px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-top: 10px;
+  }
+  
+  .section {
+    margin-top: 60px;
+  }
+  
+  .section ul {
+    list-style: none;
+  }
+  
+  .section ul li {
+    margin-bottom: 10px;
+    padding-left: 16px;
+    position: relative;
+  }
+  
+  .section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #888;
+  }
+  
+  footer {
+    padding: 20px 40px;
+    border-top: 1px solid #1e1e1e;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 80px;
+  }
+  
+  .page {
+    display: none;
+    opacity: 0;
+    transform: scale(0.97) translateY(40px);
+    filter: blur(10px);
+    transition: all 0.6s ease;
+  }
+  
+  .page.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+  
+  .page.fade-out {
+    opacity: 0;
+    transform: scale(0.97) translateY(40px);
+    filter: blur(10px);
+  }
+  
+  /* Animasi fade-in + stagger */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlideUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Untuk h2 yang bisa diklik */
+  .click-title {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .click-title:hover {
+    color: #00bcd4;
+  }
+  
+  /* Konten tersembunyi sebelum diklik */
+  .hidden {
+    display: none;
+  }
+  
+  /* Efek muncul dari kecil ke besar */
+  .reveal-content {
+    animation: scaleUp 0.5s ease forwards;
+    transform-origin: top center;
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  
+  @keyframes scaleUp {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links a {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .container {
+      padding: 30px 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    header {
+      padding: 16px 20px;
+    }
+  
+    .container {
+      padding: 20px 16px;
+    }
+  
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .nav-links a {
+      margin: 0;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  
+  /* Style form & input */
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #2b2f3a;
+    color: #f2f2f2;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  input[type="submit"] {
+    background-color: #2880b9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #1f5c88;
+  }
+  
